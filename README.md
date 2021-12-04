@@ -44,22 +44,23 @@ BPE 알고리즘과 Unigram 언어 모델을 적용한 Google의 sentencepiece�
 ### 7. 현재 폴더 구조
 <pre>
 <code>
-+---jit
-|       je.dev
-|       je.test
-|       je.train
-|       ko.dev
-|       ko.test
-|       ko.train
-|       subword_tokenizer_jeju.model
-|       subword_tokenizer_jeju.vocab
-|       subword_tokenizer_kor.model
-|       subword_tokenizer_kor.vocab
-|
-\---jupyter
-    |   main.ipynb
-    |
-    \---.ipynb_checkpoints
-            main-checkpoint.ipynb
+korToJeju
+        ├─jit
+        │      je.dev
+        │      je.test
+        │      je.train
+        │      ko.dev
+        │      ko.test
+        │      ko.train
+        │      subword_tokenizer_jeju.model
+        │      subword_tokenizer_jeju.vocab
+        │      subword_tokenizer_kor.model
+        │      subword_tokenizer_kor.vocab
+        │
+        └─jupyter
+            │  main.ipynb
+            │
+            └─.ipynb_checkpoints
+                    main-checkpoint.ipynb
 </code>
 </pre>
