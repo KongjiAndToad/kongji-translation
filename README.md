@@ -12,7 +12,7 @@
 ## 🏝 System Architecture
 <img src="https://github.com/MINJU-KIMmm/GitHubTest/blob/main/image/systemarchitecture.png"/>
 
-## 🏝 TTS
+## 🏝 기계 번역
 ### 1. 데이터
 기계번역에는 약 17만개의 말뭉치 데이터(.txt)를 사용한다. 
 ‘제주어구술자료집’ 2017, 2018년 버전을 병렬적으로 가공한 훈련 데이터 160,356쌍, 검증 데이터 5,000쌍, 테스트 데이터 5,000쌍
