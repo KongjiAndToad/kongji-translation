@@ -1,66 +1,43 @@
-# Kongji-translation
-표준어 - 제주어 기계번역
+# 소멸위기에 처한 사투리 보전을 위한 제주어 오디오북, 코소롱
+![](https://user-images.githubusercontent.com/81242672/169936577-7bc4d24a-53e0-4615-a019-9ef060b8946f.png)
+## Project Description
+- 사용자로부터 표준어 텍스트를 입력 받고 이를 제주어 오디오북으로 변환하는 웹 서비스
+- 언어학적으로 중요한 의미를 지니는 제주어를 보전할 필요성을 알리고 제주어에 대한 흥미를 고취
 
-# 제주도 사투리 번역 및 오디오북 생성 프로젝트
+## Developers
+|[김민주](https://github.com/MINJU-KIMmm)|[이채은](https://github.com/lcheun)|[정수진](https://github.com/offsujin)|[진정현](https://github.com/jh-jin)|
+|---|---|---|---|
+|![minju](https://github.com/MINJU-KIMmm.png)|![cheun](https://github.com/lcheun.png)|![sj](https://github.com/offsujin.png)|![jh](https://github.com/jh-jin.png)|
+|BackEnd, TTS, 팀장|FrontEnd, 기계번역|BackEnd, TTS|FrontEnd|
 
-## 🏝 프로젝트 개요
-사멸되어가는 우리 고유 문화인 제주어를 살리고자 제주도 사투리 번역 및 오디오북 생성 프로젝트를 기획하게 되었다. 기계번역과 음성합성 두 가지 딥러닝 모델을 구현하여 기계번역을 통해 표준어에서 제주어로 번역된 사투리 텍스트를 음성합성을 통해 오디오북을 생성한다.
+## Repository
+### 🗂 toad-server
+`Django`를 사용한 API 서버 Repository
+- 책 조회, 생성, 삭제 기능
+  - Python의 requests 라이브러리를 이용하여 딥러닝 서버와 연결
+- 로그인 & 회원가입 기능
+- 유저별 서재
+- 좋아요를 이용한 북마크 기능
+### 🗂 tts-server
+`Flask`를 사용한 딥러닝 서버 Repository
+- 음성합성 모델(Glow-TTS)와 기계번역 모델(Seq2Seq)을 이용한 오디오북 생성 기능
+  - send_file을 이용하여 API 서버로 생성된 책 전달
+### 🗂 Kongji-front
+`React`를 사용한 프론트엔드 Repository
+- API 서버와 API 통신하여 책 조회, 생성, 삭제
+- 제주도의 특산물을 연상시키는 배색
+### 🗂 kongji-translation
+`Seq2Seq`와 `Attention`을 사용한 기계번역 Repository
+- 표준어 텍스트 input -> 제주어 텍스트 output
+- 15만개의 표준어-제주어 Dataset 사용
+### 🗂 toad-glow-tts
+`Glow-TTS`를 사용한 음성합성 Repository
+- 텍스트를 제주 억양을 살려 발화하는 TTS
+- 1만개의 제주어 단일 화자 오디오 Dataset 사용
 
-## 🏝 팀원 소개
-<img src="https://github.com/MINJU-KIMmm/GitHubTest/blob/main/image/capstoneTeam.png"/>
-
-## 🏝 System Architecture
-<img src="https://github.com/MINJU-KIMmm/GitHubTest/blob/main/image/systemarchitecture.png"/>
-
-## 🏝 기계 번역
-### 1. 데이터
-기계번역에는 약 17만개의 말뭉치 데이터(.txt)를 사용한다. 
-‘제주어구술자료집’ 2017, 2018년 버전을 병렬적으로 가공한 훈련 데이터 160,356쌍, 검증 데이터 5,000쌍, 테스트 데이터 5,000쌍
-https://www.kaggle.com/bryanpark/jit-dataset
-
-### 2. Sentencepiece
-BPE 알고리즘과 Unigram 언어 모델을 적용한 Google의 sentencepiece로 텍스트 데이터를 서브워드 단위로 분절하였다.
-
-### 3. Transformer
-기계번역 모델로는 meta(구 facebook)이 제공하는 fairseq의 Transformer를 사용할 예정이다.
-
-### 4. 현재 단계
-<img src="https://user-images.githubusercontent.com/81293595/144700430-231429a7-a8c3-4044-8e21-a1da595cd5a5.png"/>
-<img src="https://user-images.githubusercontent.com/81293595/144700433-5c3b54cb-39e7-40df-aeea-250382edcb06.png"/>
+## System Architecture
+![sa](https://user-images.githubusercontent.com/81242672/169937276-3cf2821a-8fd7-44bc-8e0c-6083c7b18c86.png)
+## Poster
+![poster](https://user-images.githubusercontent.com/81242672/169936844-82d574c8-50ac-4b8e-aba4-35c99c1bdd33.png)
 
 
-### 5. 프로젝트 진행 상황 및 계획
-<img src="https://user-images.githubusercontent.com/81293595/144700381-9192ca32-2964-4f51-99e6-4817f60bb6e3.png"/>
-
-학습 ~1월 9일, 테스트 ~1월 16일
-
-### 6. 기술스택
-<img src="https://img.shields.io/badge/Google Colab -F9AB00?style=flat-square&logo=GoogleColab&logoColor=white"/></a>
-<img src="https://img.shields.io/badge/Python -3776AB?style=flat-square&logo=Python&logoColor=white"/>
-<img src="https://img.shields.io/badge/Jupyter -F37626?style=flat-square&logo=Jupyter&logoColor=white"/>
-<img src="https://img.shields.io/badge/TensorFlow -181717?style=flat-square&logo=TensorFlow&logoColor=white"/>
-<img src="https://img.shields.io/badge/GitHub -181717?style=flat-square&logo=GitHub&logoColor=white"/>
-
-### 7. 현재 폴더 구조
-<pre>
-<code>
-korToJeju
-        ├─jit
-        │      je.dev
-        │      je.test
-        │      je.train
-        │      ko.dev
-        │      ko.test
-        │      ko.train
-        │      subword_tokenizer_jeju.model
-        │      subword_tokenizer_jeju.vocab
-        │      subword_tokenizer_kor.model
-        │      subword_tokenizer_kor.vocab
-        │
-        └─jupyter
-            │  main.ipynb
-            │
-            └─.ipynb_checkpoints
-                    main-checkpoint.ipynb
-</code>
-</pre>
